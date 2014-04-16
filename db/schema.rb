@@ -145,10 +145,9 @@ ActiveRecord::Schema.define(version: 20140404100037) do
     t.string   "first_name"
     t.string   "last_name"
     t.boolean  "display_email"
-    t.string   "youtube_id"
     t.string   "slug"
+    t.string   "youtube_id"
     t.boolean  "display_profile",        default: true
-    t.boolean  "display_resume"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "country"
