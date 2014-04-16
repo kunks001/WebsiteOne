@@ -230,7 +230,7 @@ end
 Given(/^I (?:am on|go to) my "([^"]*)" page$/) do |page|
   page.downcase!
   if page == 'profile'
-    visit users_show_path(@user)
+    visit user_path(@user)
   elsif page == 'edit profile'
     visit edit_user_registration_path(@user)
   else
@@ -247,7 +247,7 @@ Given /^I am on "(.*?)" page for user "(.*?)"$/ do |page, user_name|
 
   case page
     when 'profile' then
-      visit users_show_path(user)
+      visit user_path(user)
     when page == 'edit profile'
       visit edit_user_registration_path(user)
   end
@@ -280,6 +280,18 @@ When(/^I set my ([^"]*) to be (public|private)?$/) do |value, option|
     find("input#user_display_#{value}").should_not be_checked
   end
 end
+
+
+When(/^I set ([^"]*) to be (true|false)?$/) do |value, option|
+  value = value.underscore
+  if option == 'true'
+    check("user_#{value}")
+  else
+    uncheck "user_#{value}"
+    find("input#user_#{value}").should_not be_checked
+  end
+end
+
 
 Given(/^My ([^"]*) was set to (public|private)?/) do |value, option|
   @user.update_attributes("display_#{value.underscore}".to_sym => (option == 'public'))
@@ -323,7 +335,7 @@ end
 
 Given(/^I visit (.*)'s profile page$/) do |name|
   user = User.find_by_first_name name
-  visit users_show_path user
+  visit user_path user
 end
 
 Given(/^I add skills "(.*)"/) do |skills|
@@ -350,4 +362,9 @@ end
 
 Then(/^I should see the user's bio$/) do
   pending # express the regexp above with the code you wish you had
+end
+
+
+When(/^My email receivings is set to false$/) do
+  @user.update_attribute(:receive_mailings, false)
 end

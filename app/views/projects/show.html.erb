@@ -1,6 +1,3 @@
-<% if user_signed_in? and current_user.following?(@project) %>
-    <script src="https://apis.google.com/js/platform.js"></script>
-<% end %>
 <%= javascript_include_tag 'projects' %>
 <%= javascript_include_tag 'users' %>
 <% provide :title, @project.title %>
@@ -97,7 +94,7 @@
       <% else %>
           <h2>List of Project Members</h2>
           <% @members.each do |member| %>
-              <li class="listings-item"><strong><%= link_to member.display_name, users_show_path(member) %></strong>
+              <li class="listings-item"><strong><%= link_to member.display_name, user_path(member) %></strong>
               </li>
           <% end %>
       <% end %>
