@@ -38,6 +38,7 @@ gem 'jquery-turbolinks'    #fix for turbolink problem we had with the HOA button
 gem 'addressable'       # used for uri validation
 gem 'pivotal-tracker-api' # used for Pivotal Tracker API v5
 gem 'exception_notification'
+gem 'activerecord-reputation-system', github: 'NARKOZ/activerecord-reputation-system', branch: 'rails4'
 
 gem 'yui-compressor'
 gem 'compass-rails'

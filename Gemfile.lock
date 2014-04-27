@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/NARKOZ/activerecord-reputation-system.git
+  revision: 01197ad78cac3136317b2884b61ed3da34c607d0
+  branch: rails4
+  specs:
+    activerecord-reputation-system (2.0.2)
+
+GIT
   remote: git://github.com/intridea/omniauth-github.git
   revision: a17d8b9e4765251de9892f47facba1fcfd6a8fa7
   specs:
@@ -355,6 +362,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-reputation-system!
   acts-as-taggable-on
   acts_as_follower
   acts_as_tree
